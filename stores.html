@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Snowballs - Our Stores</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ffe6fa;
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 30px;
+            background: linear-gradient(to right, #ffb6c1, #fff388);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            height: 80px;
+            z-index: 1000;
+        }
+
+        .logo img {
+            width: 170px;
+            height: 170px;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            padding-right: 60px;
+            align-items: center;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-item a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            transition: transform 0.2s ease-in-out;
+            white-space: nowrap;
+            display: inline-block;
+        }
+
+        .nav-item a:hover {
+            transform: scale(1.1);
+        }
+
+        #active {
+            text-decoration: underline;
+        }
+
+        /* Stores section */
+        .store-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .store-box {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            width: 300px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .store-box:hover {
+            transform: scale(1.05);
+            transition: 0.3s ease-in-out;
+        }
+
+        .store-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .store-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .store-type {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 10px;
+        }
+
+        .store-btn {
+            display: block;
+            width: 90%;
+            padding: 8px;
+            margin: 8px auto;
+            font-size: 14px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .store-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .map-btn {
+            background: linear-gradient(to right, #ff6078, #ffe134);
+            color: white;
+        }
+
+        .swiggy-btn {
+            background: rgb(255, 123, 0);
+            color: rgb(255, 255, 255);
+        }
+
+        .zomato-btn {
+            background: red;
+            color: white;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .button-group .store-btn {
+            width: 45%;
+        }
+
+        .heading {
+            font-size: 30px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <div class="nav-item"><a href="index.html">About us</a></div>
+            <div class="nav-item"><a href="products.html">Our products</a></div>
+            <div class="nav-item"><a id="active" href="#">Our stores</a></div>
+            <div class="nav-item"><a href="contact.html">Contact us</a></div>
+        </div>
+    </nav>
+
+    <h2 class="heading">Our Stores</h2>
+
+    <div class="store-container">
+        <div class="store-box">
+            <img src="images/store.jpg" alt="Pacific D21 Mall" class="store-img">
+            <p class="store-name">Pacific D21 Mall, New Delhi</p>
+            <p class="store-type">Kiosk</p>
+            <button class="store-btn map-btn" onclick="window.open('https://g.co/kgs/ZJFKjvj', '_blank')">Open in Google Maps</button>
+            <div class="button-group">
+                <button class="store-btn swiggy-btn" onclick="window.open('https://www.swiggy.com/', '_blank')">Swiggy</button>
+                <button class="store-btn zomato-btn" onclick="window.open('https://www.zomato.com/ncr/sweet-snowball-sector-21-dwarka-new-delhi', '_blank')">Zomato</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>  

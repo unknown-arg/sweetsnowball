@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Snowballs - Our Products</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ffe6fa;
+            text-align: center;
+            padding-top: 100px;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 30px;
+            background: linear-gradient(to right, #ffb6c1, #fff388);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            height: 80px;
+            z-index: 1000;
+        }
+        .logo img {
+            width: 170px;
+            height: 170px;
+            object-fit: contain;
+        }
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            padding-right: 60px;
+            align-items: center;
+        }
+        .nav-item a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            transition: transform 0.2s ease-in-out;
+            white-space: nowrap;
+            display: inline-block;
+        }
+        .nav-item a:hover {
+            transform: scale(1.1);
+        }
+        #active {
+            text-decoration: underline;
+        }
+
+        /* Search box */
+        .search-container {
+            margin: 20px auto;
+            width: 50%;
+            position: relative;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 25px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .search-box:focus {
+            transform: scale(1.05);
+        }
+
+        /* Products */
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .product-box {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            width: 300px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .product-box:hover {
+            transform: scale(1.05);
+            transition: 0.3s ease-in-out;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .store-btn {
+            width: 45%;
+            padding: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .store-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .swiggy-btn {
+            background: rgb(255, 123, 0);
+            color: rgb(255, 255, 255);
+        }
+
+        .zomato-btn {
+            background: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <div class="nav-item"><a href="index.html">About us</a></div>
+            <div class="nav-item"><a id="active" href="#">Our products</a></div>
+            <div class="nav-item"><a href="stores.html">Our stores</a></div>
+            <div class="nav-item"><a href="contact.html">Contact us</a></div>
+        </div>
+    </nav>
+
+    <!-- Search Box -->
+    <div class="search-container">
+        <input type="text" class="search-box" id="searchInput" placeholder="Search for products..." onkeyup="searchProducts()">
+    </div>
+
+    <!-- Products -->
+    <div class="product-container" id="productList">
+        <div class="product-box" data-name="Gelato">
+            <img src="images/gelato.jpg" alt="Gelato" class="product-img">
+            <p class="product-name">Gelato</p>
+            <div class="button-group">
+                <button class="store-btn swiggy-btn" onclick="window.open('https://www.swiggy.com/', '_blank')">Swiggy</button>
+                <button class="store-btn zomato-btn" onclick="window.open('https://www.zomato.com/', '_blank')">Zomato</button>
+            </div>
+        </div>
+
+        <div class="product-box" data-name="Kulfi">
+            <img src="images/kulfi.jpg" alt="Kulfi" class="product-img">
+            <p class="product-name">Kulfi</p>
+            <div class="button-group">
+                <button class="store-btn swiggy-btn" onclick="window.open('https://www.swiggy.com/', '_blank')">Swiggy</button>
+                <button class="store-btn zomato-btn" onclick="window.open('https://www.zomato.com/', '_blank')">Zomato</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function searchProducts() {
+            let input = document.getElementById("searchInput").value.toLowerCase();
+            let productBoxes = document.querySelectorAll(".product-box");
+
+            productBoxes.forEach(box => {
+                let productName = box.getAttribute("data-name").toLowerCase();
+                if (productName.includes(input)) {
+                    box.style.display = "block";
+                } else {
+                    box.style.display = "none";
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
